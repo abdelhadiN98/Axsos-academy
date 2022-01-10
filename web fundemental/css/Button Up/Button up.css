@@ -1,0 +1,23 @@
+*{
+    margin: 5px 20px;
+}
+.search{
+    background-color: floralwhite;
+    color: darkturquoise;
+    font-weight: normal;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: darkturquoise;
+    font-size: 15px;   
+}
+.plus{
+    background-color: dodgerblue;
+    color: floralwhite;
+    border-radius: 50%;
+}
+input[type="submit"]{
+    background-color: blue;
+    color: floralwhite;
+    font-weight: normal;
+    box-shadow: black;
+}

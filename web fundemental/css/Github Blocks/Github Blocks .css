@@ -1,0 +1,36 @@
+.container{
+    height: 870px;
+    width: 900px;
+    margin: 0px auto;
+    background-color: gray;
+    font-weight: bold;
+    font-style: normal;
+    border-top: 5px black solid;
+    flex-direction: row;
+    padding: 15px;
+    text-align: center;
+}
+.layer1{
+    background-color: rgb(82, 206, 200);
+    display: flex;
+    justify-content:space-around;
+    margin-bottom: 15px;
+    padding: 10px;
+
+}
+.layer2{
+    background-color: rgb(245, 192, 210);
+    display: flex;
+    justify-content:space-around;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+.layer3{
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+h1{
+    align-content: center;
+}
