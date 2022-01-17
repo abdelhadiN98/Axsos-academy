@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 1220px;
+    height: 950px;
+    margin: 0px auto;
+    border: solid black 2px;
+}
+
+header{
+    background-color: #9fc5f8;
+    color: white;
+    height: 75px;
+    width: inherit;
+    display: flex;
+    justify-content: space-between;
+}
+.icons{
+    height: 77px;
+    width: 445px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+    color: #135a98;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    font-size: 45px;
+    font-family: cursive;
+    margin-left: 130px;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+    height: 65px;
+    margin-top: 20px;
+    border-bottom: black solid 2px;
+    margin-left: 135px;
+}
+.temp{
+    width: 313px;
+    display: flex;
+    align-items: center;
+}
+h2{
+    width: 200px;
+    font-size: 35px;
+    font-family: cursive;
+}
+h3{
+    width: 215px;
+    text-align: -webkit-center;
+    font-style: normal;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 21px;
+}
+.Boxes{
+    display: flex;
+    width: 1000px;
+    justify-content: space-between;
+    height: 330px;
+    margin-top: 20px;
+    margin-left: 135px;
+}
+
+.box1{
+    width: 200px;
+    background-color: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.numbers{
+    width: 20px;
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+}
+h4{
+    font-size: 28px;
+    font-family: cursive;
+}
+h5{
+    font-size: 25px;
+    font-family: cursive;
+    color: #cf2b28;
+}
+h6{
+    font-size: 25px;
+    font-family: cursive;
+    color: #327ce4;
+}
+img{
+    height: 154px;
+    width: 150px;
+}
+p{
+    font-size: 24px;
+    font-family: cursive;
+}
+footer{
+    display: flex;
+    justify-content: space-between;
+    background-color: #eeeeee;
+    width: 1000px;
+    height: 210px;
+    margin-top: 10px;
+    border: black solid 2px;
+    margin-left: 135px;
+    position: fixed;
+}
+.cockie{
+    margin-top: 28px;
+    height: 141px;
+    width: 173px;
+}
+.title{
+    height: 40px;
+    font-weight: bold;
+}
+
+.stop{
+    width: 680px;
+    height: 170px;
+    margin-top: 30px;
+}
+button{
+    background-color: #9fc5f8;
+    color: black;
+    height: 36px;
+    width: 100px;
+    margin: 100px 55px;
+    border: black solid 4px;
+    box-shadow: 3px 3px black;
+    font-weight: bold;
+    font-size: 15px;
+}
+select{
+    height: 26px;
+    width: 65px;
+    border: solid black 3px;
+}

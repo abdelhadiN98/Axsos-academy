@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="DojoWeather.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>DojoWeather</h1>
+        <div class="icons">
+            <a onclick="alert('loading weather report...')" href="www.google.ps">Burbank</a>
+            <a onclick="alert('loading weather report...')" href="www.google.ps">Chicago</a>
+            <a onclick="alert('loading weather report...')" href="www.google.ps">Dollas</a>
+        </div>
+    </header>
+
+    <nav>
+        <h2>San Jose</h2>
+        <div class="temp">
+            <h3>show temperature in</h3>
+            <select name="temperature" onchange ="change(this)">
+                <option value="cel">°C</option>
+                <option value="feh">°F</option>
+            </select>
+            
+        </div>
+    </nav>
+
+    <div class="Boxes">
+        <div class="box1">
+            <h4>Today</h4>
+            <img src="some_rain.png">
+            <p>some rain</p>
+            <div class="numbers">
+                <h5 id="temp0">24°</h5>
+                <h6 id="temp1">18°</h6>
+            </div>
+        </div>
+        <div class="box1">
+            <h4>Tomorrow</h4>
+            <img src="some_sun.png">
+            <p>some sun</p>
+            <div class="numbers">
+                <h5 id="temp2">27°</h5>
+                <h6 id="temp3">19°</h6>
+            </div>
+        </div>
+        <div class="box1">
+            <h4>Friday</h4>
+            <img src="some_clouds.png">
+            <p>some clouds</p>
+            <div class="numbers">
+                <h5 id="temp4">21°</h5>
+                <h6 id="temp5">16°</h6>
+            </div>
+        </div>
+        <div class="box1">
+            <h4>Saturday</h4>
+            <img src="some_sun.png">
+            <p>some sun</p>
+            <div class="numbers">
+                <h5 id="temp6">26°</h5>
+                <h6 id="temp7">21°</h6>
+            </div>
+        </div>
+    </div>
+    <footer id="end">
+        <div class="cockie"><img src="cookie.png"></div>
+        <div class="stop">
+        <p class="title">Stop! Cockie time</p>
+        <p class="paragraph">
+            We use cookies(sadly not the edible ones) to pesonalize<br>
+            content and ods,to provide social media features and to<br>
+            analyse our traffic.<a href="www.google.ps">Read more...</a>
+        </p>
+        </div>
+        <div>
+            <button onclick="remove()">I Accept</button>
+        </div>
+    </footer>
+</div>
+<script src="DojoWeather.js"></script>
+</body>
+</html>
