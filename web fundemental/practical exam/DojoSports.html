@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Sports News Network</title>
+    <link rel="stylesheet" href="DojoSports.css">
+</head>
+<body>
+    <div class="container">
+
+        <header>
+            <h1>Live Scores</h1>
+            <div class="scores">
+                <div><p>SJC Ninjas -314 <br>Ns Pirates -159</p></div>
+                <div><p>CHI Samurai-0 <br>TUL Wizards - 0</p></div>
+                <div><p>BOS Hackers - 13 <br>TYO Youkai - 37</p></div>
+                <div><p>BOI Knights - 5 <br>SEA Sea Lions - 11</p></div>
+            </div>
+        </header>
+
+        <nav>
+            <div><h2 id="dsnn">DSNN</h2></div>
+            <div class="major">
+            <a href="#">Football</a>
+            <a href="#">Basketball</a>
+            <a href="#">Baseball</a>
+            <a href="#">Soccer</a>
+            <a href="#">More ..</a>
+            </div>
+            <div class="images">
+                <img src="search-light.png" alt="Search">
+                <img src="hamburger-light.png" alt="hamburger-light">
+                <img src="user-circle-light.png" alt="">
+            </div>
+        </nav>
+        <div class="flex">
+        <div class="leftFlex">
+        <aside>
+            <div class="box1">
+                <h3>Top Stories</h3>
+                <p class="ninjas">Ninjas up big in 5th <br>
+                Best sports cities <br>
+                Choi joins Hall of Fame <br>
+                Tournamaent underway <br>
+                Samurai at Wizards ...</p>
+            </div>
+
+            <div class="box2">
+                <h4>Custimize Your DSNN</h4>
+                <div class="buttons">
+                    <button class="button1">sign in</button>
+                    <button class="button2">sign up</button>
+                </div>
+            </div>
+                <div class="box3">
+                    <h5>Never miss a play</h5>
+                    <button onclick="remove ()">Subscribe</button>
+                </div>
+            </div>
+        </aside>
+
+        <div class="rightFlex">
+
+        <section>
+            <div class="title">
+            <ul class="live"><li>Live</li></ul>
+            <h6>Ninjas Leading Birates</h6>
+            </div>
+
+            <div class="content">
+                <div class="left">
+                    <img src="sjc-ninjas.png" alt="ninjas">
+                    <h2 class="san">San Jose</h2>
+                    <h2 id="blue" class="Ninjas">Ninjas</h2>
+                    <p class="w">(10 W - 3 L)</p>
+                    <h2 class="number1" id="num1" onclick="increment(0)">314</h2>
+                </div>
+
+                <div class="middle">
+                    <h2 class="vs">VS</h2>
+                    <P class="time">0:13 remaining <br>
+                    5th period</P>
+                </div>
+
+                <div class="left">
+                    <img src="ns-pirates.png" alt="pirates">
+                    <h2 class="san">Nova Scotia</h2>
+                    <h2 id="red" class="Ninjas">Pirates</h2>
+                    <p class="w">(12 W - 2 L)</p>
+                    <h2 class="number2" onclick="increment(1)">159</h2>
+                </div>
+                </div>
+                <footer>
+                    <p class="last">A conservative match between the two top-performing <br>
+                    sides in the Central League Division with a number 1 <br>
+                seed at stake ... <a href="www.google.ps">get live updates</a></p>
+                </footer>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="DojoSports.js"></script>
+</body>
+</html>
