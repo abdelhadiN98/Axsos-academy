@@ -21,7 +21,7 @@ class user:
 
     def display_user_balance(self):
         self.account_balance=self.account_deposit-self.account_withdrawal
-        print(self.account_balance)
+        print("the balance is",self.account_balance)
 
     def transfer_money(self, name,amount):
         self.account_balance-=amount
