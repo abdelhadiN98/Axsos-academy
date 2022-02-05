@@ -27,16 +27,17 @@ class user:
         self.account=[bankAccount(int_rate=0.02,balance=0)]
         
     def make_deposit(self,amount,index):
-        self.account.append(bankAccount(int_rate=0.02,balance=0))
         self.account[index].balance +=amount
         
         return self
     def make_withdrawal(self,amount,index):
-        self.account.append(bankAccount(int_rate=0.02,balance=0))
         self.account[index].balance-=amount
         return self
     def display_user_balance(self,index):
         print(self.account[index].balance)
+        return self
+    def new_account(self):
+        self.account.append(bankAccount(int_rate=0.02,balance=0))
         return self
 
 
@@ -48,4 +49,5 @@ acc4=bankAccount(0.02,0)
 
 maher=user("maher",24,"baqa")
 abed=user("abed",24,"baqa")
-maher.make_deposit(100,0).make_deposit(200,2).make_withdrawal(100,2).make_deposit(200,3).display_user_balance(0).display_user_balance(2).display_user_balance(3)
+maher.make_deposit(200,0).make_deposit(100,0).display_user_balance(0).new_account()
+maher.make_deposit(200,1).make_deposit(100,1).display_user_balance(1).new_account()
