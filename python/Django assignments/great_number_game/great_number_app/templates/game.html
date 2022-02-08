@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Number Game</title>
+</head>
+<style>
+    body{
+        margin: 100px 0px 0px 300px;
+        height: 520px;
+        width: 600px;
+        font-family: cursive;
+    }
+    h1{
+        height: 50px;
+        width: 530px;
+        margin-left: 50px;
+    }
+    .range{
+        height: 50px;
+        width: 367px;
+        margin-left: 167px;
+    }
+    .guess{
+        height: 50px;
+        width: 171px;
+        margin-left: 259px;
+    }
+    .box{
+        outline: 2px black solid;
+        width: 115px;
+        height: 29px;
+        margin-left: 260px;
+        margin-top: 10px;
+    }
+    .button{
+        width: 85px;
+        height: 27px;
+        box-shadow: 3px 3px black;
+        outline: solid black 1px;
+        margin-left: 286px;
+    }
+    .high{
+        outline: black solid 2px;
+        background-color:#cf2a27;
+        height: 175px;
+        width: 175px;
+        color: white;
+        margin-left: 235px;
+        font-size: 29px;
+    }
+    .red{
+        outline: black solid 2px;
+        background-color:#cf2a27;
+        height: 175px;
+        width: 175px;
+        color: white;
+        margin-left: 235px;
+        font-size: 29px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .correct{
+        outline: black solid 2px;
+        background-color:green;
+        height: 175px;
+        width: 175px;
+        color: white;
+        margin-left: 235px;
+        font-size: 29px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .word{
+        outline: black solid 2px;
+        height: 174px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+</style>
+<body>
+    <h1>Welcome to Great Number Name</h1>
+    <p class="range">I am thinking of a number between 1 to 100</p>
+    <p class="guess">Take a guess !</p>
+    {% if request.session.result == "high" %}
+    <div class="high">
+    <p class="word">Too high</p>
+    </div>
+    {% endif %}
+    {% if request.session.result == "low" %}
+    <p class="red">Too low</p>
+    {% endif %}
+    {% if request.session.result == "correct" %}
+    <p class="correct">{{request.session.value}} Was the <br> number !</p>
+    {% endif %}
+    <form action="result" method="post">
+        {%csrf_token%}
+        <input class="box" type="text" name="number">
+        <p><input class="button" type="submit" value="submit"></p>
+    </form>
+    </form>
+</body>
+</html>
