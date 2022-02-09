@@ -120,7 +120,20 @@
 </div>
 <div class="act">
     <h2>activity :</h2>
-    <textarea class="write" name="activity"></textarea>
+    <div style="width: 1200px; height: 200px; outline: 2px solid black; " >
+        {% if request.session.cave_a == 'cave_a' %}
+        <p >earned {{request.session.cave_earn}} from the cave! {{request.session.time}}</p> 
+        {% endif %}
+        {% if request.session.farm_a == 'farm_a' %}
+        <p>earned {{request.session.farm_earn}} from the farm! {{request.session.time}}</p> 
+        {% endif %}
+        {% if request.session.house_a == 'house_a' %}
+        <p>earned {{request.session.house_earn}} from the house! {{request.session.time}}</p> 
+        {% endif %}
+        {% if request.session.casino_a == 'casino_a' %}
+        <p>earned {{request.session.casino_earn}} from the casino! {{request.session.time}}</p> 
+        {% endif %}
+    </div>
 </div>
 </div>
 </body>
