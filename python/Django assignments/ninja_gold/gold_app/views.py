@@ -1,11 +1,15 @@
 from django.shortcuts import render,redirect
 import random
+from time import gmtime, strftime
+
 
 def show(request):
     return render(request , 'gold.html')
 
 def process(request):
     request.session['total']
+    request.session['time']=strftime("%Y-%m-%d %H:%M %p", gmtime())
+
     if request.POST['which_form']=='farm':
         request.session['farm_a']='farm_a'
         request.session['farm_earn']=random.randint(10,20)
