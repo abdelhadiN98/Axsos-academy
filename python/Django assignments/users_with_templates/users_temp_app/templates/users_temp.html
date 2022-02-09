@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C + R Users</title>
+    <style>
+        .all{
+            display: flex;
+            justify-content: space-between;
+            width: 797px;
+            height: 150px;
+        }
+        .table{
+            width: 750px;
+            margin: 0 auto;
+        }
+        .add{
+            font-family: cursive;
+            margin: 0 auto;
+            width: 750px;
+            text-align: center;
+        }
+        .above{
+            width: 750px;
+            margin: 0 auto;
+        }
+        .below{
+            width: 830px;
+            margin: 0 auto;
+            margin-top: 181px;
+        }
+        .name{
+            height: 53px;
+            width: 309px;
+            font-family: cursive;
+            display: flex;
+            justify-content: space-between;
+        }
+        .last{
+            height: 53px;
+            width: 290px;
+            font-family: cursive;
+            display: flex;
+            justify-content: space-between;
+        }
+        .email{
+            height: 53px;
+            width: 309px;
+            font-family: cursive;
+            display: flex;
+            justify-content: space-between;
+        }
+        .age{
+            height: 53px;
+            width: 290px;
+            font-family: cursive;
+            display: flex;
+            justify-content: space-between;
+        }
+        .border{
+            height: 30px;
+        }
+        .button{
+            outline: solid black 2px;
+            width: 76px;
+            height: 35px;
+            margin: 0 auto;
+            margin-left: 361px;
+            box-shadow: 3px 3px black
+        }
+        .btn{
+            width: 830px;
+            height: 50px;
+            margin: 0 auto;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="above">
+    <h1 class="add">All the Users</h1>
+    <table class="table" border="2px">
+        <tr class="tr1">
+            <td>id</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>age</td>
+            <td>Created_at</td>
+            <td>Updated_at</td>
+        </tr>
+        {% for information in info %}
+        <tr class="tr2">
+            <td>{{information.id}}</td>
+            <td>{{information.first_name}} {{information.last_name}}</td>
+            <td>{{information.Email}}</td>
+            <td>{{information.age}}</td>
+            <td>{{information.created_at}}</td>
+            <td>{{information.updated_at}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <!-- teble is here -->
+        </div>
+    <hr>
+    <div class="below">
+    <h2 class="add">Add a User</h2>
+    <form action="result" method="post">
+        {% csrf_token %}
+        <div class="all">
+            <div class="left">
+                <p class="name">First Name : <input class="border" type="text" name="firstname"></p>
+                <p class="email">Email address : <input class="border" type="text" name="email"></p>
+            </div>
+            <div class="right">
+                <p class="last">Last Name : <input class="border" type="text" name="lastname"></p>
+                <p class="age">age : <input class="border" type="text" name="age"></p>
+            </div>
+        </div>
+        <div class="btn">
+        <input class="button" type="submit" value="Add">
+        </div>
+    </form>
+    </div>
+    </div>
+</body>
+</html>
