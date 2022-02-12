@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos & Ninjas</title>
+    <style>
+        .add{
+            display: flex;
+            height: 250px;
+            width: 800px;
+            justify-content: space-between;
+            margin: 0 auto;
+            font-family: cursive;
+        }
+        h1{
+            font-family: cursive;
+        }
+        input{
+            outline:black 2px solid; 
+            margin-left: 30px;
+        }
+
+        button{
+            margin-left: 77px;
+            height: 30px;
+            width: 50px;
+            box-shadow: 2px 2px black;
+            outline:black 1px solid;
+        }
+        .print{
+            width: 366px;
+            margin: 0 auto;
+            font-family: cursive;
+        }
+        select{
+            outline:black 1px solid;
+            margin-left: 74px;
+            width: 180px;
+            height: 26px;
+        }
+        #city{
+            margin-left: 41px;
+        }
+    </style>
+</head>
+<body>
+    <div class="add">
+    <div class="dojo">
+    <!-- add a dojo -->
+    <h1>Add a Dojo</h1>
+    <form action="result" method="post">
+        {% csrf_token %}
+    <p>Name <input type="text" name="first_name"></p>
+    <p>City <input id="city" type="text" name="city"></p>
+    <p>State <input type="text" name="state"></p>
+    <button>Add</button>
+    </form>
+    </div>
+    <!-- add a ninja -->
+    <div class="ninja">
+    <h1>Add a Ninja</h1>
+    <form action="result1" method="post">
+        {% csrf_token %}
+    <p>First Name <input type="text" name="first_name1"></p>
+    <p>Last Name <input type="text" name="Last Name"></p>
+    <p> Dojo <select name="value">
+        <!-- for loop for select -->
+        {% for Dojo in info %}
+        <option value={{Dojo.id}}>{{Dojo.name}}</option>
+        {% endfor %}
+        <!-- endloop -->
+    </select>
+    </p>
+    <button>Add</button>
+    </form>
+    </div>
+    </div>
+    <hr>
+    <div class="print">
+        <h1>All the Dojos</h1>
+        <ul>
+            {% for Dojo in info %}
+            <li>Ninjas at {{Dojo.name}}
+            <ul>
+                {% for Ninja in Dojo.ninjas.all %}
+                <li><em>{{Ninja.first_name}} {{Ninja.last_name}}</em></li>
+                {% endfor %}
+            </ul>
+        </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
