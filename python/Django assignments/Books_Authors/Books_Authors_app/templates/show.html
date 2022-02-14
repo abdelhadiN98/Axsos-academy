@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books & Authors</title>
+</head>
+<body>
+    <h1>Add a Book</h1>
+    <form action="main" method="post">
+        {% csrf_token %}
+    <p>Title <input type="text" name="title"></p>
+    <p>Describtion <textarea name="describtion"></textarea></p>
+    <button>Add</button>
+    </form>
+    <!-- table below -->
+    <table border="1px">
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Action</th>
+        </tr>
+        {% for information in infoBook %}
+        <tr>
+            <td>{{information.id}}</td>
+            <td>{{information.title}}</td>
+            <td><a href="http://127.0.0.1:8000/books/{{information.id}}">View</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

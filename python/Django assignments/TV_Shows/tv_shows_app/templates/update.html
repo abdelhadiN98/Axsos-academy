@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <style>
+        h1{
+            height: 70px;
+            width: 300px;
+            font-family: cursive;
+        }
+        a{
+            width: 98px;
+            font-size: 19px;
+            color: #3b6198;
+        }
+        .flex{
+            height: 100px;
+            width: 700px;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+        }
+        .title{
+            font-family: cursive;
+            width: 100px;
+            height: 70px;
+        }
+        form{
+            font-family: cursive;
+            width:700px;
+            height: 400px;
+            margin-top: 25px;
+            font-size: 22px;
+            margin: 0 auto;
+        }
+        #title{
+            width: 622px;
+            height: 29px;
+        }
+        .flex2{
+            height: 100px;
+            width: 685px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 33px;
+        }
+
+        textarea{
+            outline: solid black 2px;
+            height: 130px;
+            width: 555px;
+            margin-right: 15px;
+        }
+        .desc{
+            height: 130px;
+            width: 50px;
+        }
+        button{
+            outline: solid black 1px;
+            box-shadow: 2px 2px black;
+            margin-left: 320px;
+            height: 30px;
+            width: 71px;
+        }
+        input{
+            outline: solid black 1px;
+            height: 25px;
+            width: 210px;
+        }
+        .flex3{
+            display: flex;
+            justify-content: space-between;
+        }
+        .link{
+            margin-left: 640px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex">
+    <div><h1>Edit show {{tv_show.id}}</h1></div>
+    <div><a href="#">Go back</a></div>
+    </div>
+    <form action="/shows/{{tv_show.id}}/edit" method="post">
+        {% csrf_token %}
+        <label class="title">Title</label>
+        <input id="title" type="text" name="title_update">
+        <div class="flex2">
+            <div>
+                <label>Network</label>
+                <input type="text" name="network_update">
+            </div>
+            <div>
+                <label>Release Date</label>
+                <input type="date" name="date_update">
+            </div>
+        </div>
+        <div class="flex3">
+            <p><label class="desc">Description</label></p>
+            <textarea name="description_update"></textarea>
+        </div>
+        <p><button>Update</button></p>
+    </form>
+    <a class="link" href="http://127.0.0.1:8000/shows/{{tv_show.id}}"> Go to show</a>
+</body>
+</html>
