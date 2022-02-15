@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .all{
+            height: 630px;
+            width: 820px;
+            display: flex;
+            justify-content: space-between;
+            font-family: cursive;
+            margin: 0 auto;
+        }
+        .btn{
+            height: 30px;
+            width: 70px;
+            outline: black 1px solid;
+            box-shadow: 2px 2px black;
+        }
+        .first{
+            margin-bottom: 45px;
+        }
+        .last , .birth , .em , .pass , .pass_con{
+            margin-bottom: 45px;
+        }
+    </style>
+</head>
+<body>
+    {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="all">
+    <div class="form1">
+    <h1>Registration Form</h1>
+    <form action='register' method='post'>
+        {% csrf_token %}
+            <p class="first">first name: <input type='text' name='first_name'></p>
+            <div class="formdata">
+            <div>
+            <p class="last">last name: <input type='text' name='last_name'></p> 
+            <p class="birth">Birthday:<input type='date' name='birthday'> </p>
+            </div>
+            <div>
+            <p>{{request.session.error2}}</p>
+            <p class="em">email:<input type='email' name='email'> </p>
+        </div>
+        </div>
+            <p class="pass">password: <input type='password' name='password'></p>
+            <p class="pass_con">confirm PW:<input type='password' name='password_con'> </p>
+            <p><input  type="submit" value='register'  class="btn"></p>
+    </form>
+    </div>
+    <div class="form2">
+    <h1>Login Form</h1>
+    <p>{{request.session.error1}}</p>
+    <form action='log_in' method='post'>
+        {% csrf_token %}
+            <p>email:<input type='email' name='email'> </p>
+            <p>password: <input type='password' name='password'></p>
+            <p><input type="submit" value='log in'  class="btn"></p>
+    </form>
+    </div>
+    </div>
+</body>
+</html>
