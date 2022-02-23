@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: space-between;
+            width: 800px;
+            margin: 0 auto;
+            font-family: cursive;
+            font-size: 17px;
+        }
+        .input{
+            display: flex;
+            justify-content: space-between;
+            width: 600px;
+        }
+        .registeration{
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #reg_button{
+            height: 30px;
+            width: 70px;
+            outline: 1px black solid;
+            box-shadow: 2px 2px black;
+        }
+        .first{
+            margin-left: 33px;
+            height: 22px;
+            outline: 1px black solid;
+        }
+        .last{
+            margin-left: 35px;
+            height: 22px;
+            outline: 1px black solid;
+        }
+        .em{
+            margin-left: 74px;
+            height: 22px;
+            outline: 1px black solid;
+        }
+        .pass{
+            margin-left: 44px;
+            height: 22px;
+            outline: 1px black solid;
+        }
+        .con-pass{
+            margin-left: 21px;
+            height: 22px;
+            outline: 1px black solid;
+        }
+        .login{
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #login-button{
+            height: 30px;
+            width: 70px;
+            outline: 1px black solid;
+            box-shadow: 2px 2px black;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- form for registration -->
+    <form class="registeration" action="/register" method="post">
+        {% csrf_token %}
+        <h1>Registration</h1>
+        <div class="input"><label for="first_name">First_name <input class="first" type="text" name="first_name"></label></div>
+        <div class="input"><label for="last_name">Last_name <input class="last" type="text" name="last_name"></label></div>
+        <div class="input"><label for="email">Email <input class="em" type="text" name="email"></label></div>
+        <div class="input"><label for="password">Password <input class="pass" type="password" name="password"></label></div>
+        <div class="input"><label for="confirm_password">Confirm PW <input class="con-pass" type="password" name="confirm_password"></label></div>
+        <button id="reg_button">Register</button>
+        {% if 'coming_from' in request.session %}
+        {% if request.session.coming_from == 'register' %}
+        {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endif %}
+        {% endif %}
+    </form>
+
+    <!-- form for login -->
+    <form class="login" action="/login" method="post">
+        {% csrf_token %}
+        <h2>Login</h2>
+        <div class="input"><label for="email">Email <input class="em" type="text" name="email"></label></div>
+        <div class="input"><label for="password">Password <input class="pass" type="password" name="password"></label></div>
+        <button id="login-button">Login</button>
+        {% if 'coming_from' in request.session %}
+        {% if request.session.coming_from == 'login' %}
+        {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endif %}
+        {% endif %}
+    </form>
+</body>
+</html>

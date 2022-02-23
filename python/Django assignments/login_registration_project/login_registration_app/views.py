@@ -1,6 +1,6 @@
 
-from multiprocessing import context
-from django.shortcuts import render,redirect
+# from multiprocessing import context
+from django.shortcuts import render,redirect , HttpResponse
 from .models import User
 import bcrypt
 from django.contrib import messages
@@ -11,48 +11,42 @@ def register(request):
 
 # the action of register and conditions 
 def add_new_user (request):
-    errors = User.objects.basic_validator(request.POST)
+    errors = User.objects.Register_validator(request.POST)
+    request.session['coming_from']="register"
     if len(errors) > 0:
         for key, value in errors.items():
             messages.error(request, value)
         return redirect('/')
     else:
-        user = User.objects.filter(email=request.POST['email'])
-        
-        if user:
-            request.session['error2']=str('Email already exists')
-            return redirect('/')
-        else:
-            password = request.POST['password']
-            pw_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
-            new_user = User.objects.create(first_name=request.POST['first_name'],last_name=request.POST['last_name'],
-            email=request.POST['email'],password=pw_hash)
-            messages.success(request, "User successfully craeted")
-            register=str('registered')
-            request.session['name']=str(f'Success! Welcome!, {new_user.first_name}!')
-            # del request.session['error2']
-            return redirect('/success')
+        password = request.POST['password']
+        pw_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
+        User.objects.create(
+            first_name=request.POST['first_name'],
+            last_name=request.POST['last_name'],
+            email=request.POST['email'],
+            password=pw_hash)
+        messages.success(request, "User successfully registerd")
+        # redirect to success
+        return redirect('/success')
 
 # the action of login and conditions
 def log_in(request):
-    user = User.objects.filter(email=request.POST['email'])
-    if user: 
-        logged_user = user[0] 
-        if bcrypt.checkpw(request.POST['password'].encode(), logged_user.password.encode()):
-            request.session['userid'] = logged_user.id
-            login=str('loged_in')
-            request.session['name']=str(f'Success! Welcome!, {logged_user.first_name}!')
-            # del request.session['error2']
-            # del request.session['error1']
-            return redirect('/success')
-        else:
-            request.session['error1']=str('Wrong password')
-            print('wrong password')
-            return redirect('/')
-    else:
-        request.session['error1']=str('Register first')
-        print('register first')
+    errors = User.objects.login_validator(request.POST)
+    request.session['coming_from']="login"
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request, value)
+        if (len(User.objects.filter(email=request.POST['email']))>0):
+            messages.error(request, "The password is incorrect")
+            if (request.POST['password'] != User.objects.get(email=request.POST['email']).password):
+                messages.error(request, "The password is incorrect")
+                return redirect('/')
+        messages.error(request, "You are not registered yet !")
         return redirect('/')
+    else:
+        messages.success(request , "User successfully logged in")
+        return redirect('/success')
+
 def success(request):
     return render (request, 'result.html')
 

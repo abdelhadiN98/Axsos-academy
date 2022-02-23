@@ -1,11 +1,13 @@
 from django.urls import path
-from . import views	
-                    
+from . import views
+
 urlpatterns = [
     path('', views.show),
-    path('main', views.main),
-    path('add', views.add),
-    path('books/<number>' , views.result),
-    path('author',views.form),
-    path('author/<num>',views.details)
+    path('authors',views.show1),
+    path('add_book', views.add_book),
+    path('add_author', views.add_author),
+    path('books/<book_id>', views.desc),
+    path('authors/<author_id>' , views.desc1),
+    path('add<book_id>', views.insert),
+    path('plus<author_id>', views.insert1)
 ]

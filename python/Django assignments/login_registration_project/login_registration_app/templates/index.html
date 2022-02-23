@@ -29,13 +29,6 @@
     </style>
 </head>
 <body>
-    {% if messages %}
-    <ul class="messages">    
-        {% for message in messages %}    
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
-        {% endfor %}
-    </ul>
-    {% endif %}
     <div class="all">
     <div class="form1">
     <h1>Registration Form</h1>
@@ -48,7 +41,6 @@
             <p class="birth">Birthday:<input type='date' name='birthday'> </p>
             </div>
             <div>
-            <p>{{request.session.error2}}</p>
             <p class="em">email:<input type='email' name='email'> </p>
         </div>
         </div>
@@ -57,16 +49,18 @@
             <p><input  type="submit" value='register'  class="btn"></p>
     </form>
     </div>
+
+    <!-- login_form -->
     <div class="form2">
-    <h1>Login Form</h1>
-    <p>{{request.session.error1}}</p>
-    <form action='log_in' method='post'>
-        {% csrf_token %}
-            <p>email:<input type='email' name='email'> </p>
-            <p>password: <input type='password' name='password'></p>
-            <p><input type="submit" value='log in'  class="btn"></p>
-    </form>
-    </div>
+        <h1>Login Form</h1>
+        <form action='/log_in' method='post'>
+            {% csrf_token %}
+                <p>email:<input type='email' name='login_email'> </p>
+                <p>password: <input type='password' name='login_password'></p>
+                <p><input type="submit" value='log in'  class="btn"></p>
+
+        </form>
+        </div>
     </div>
 </body>
 </html>

@@ -4,9 +4,8 @@ from datetime import datetime
 
 
 class UserManager(models.Manager):
-    def basic_validator(self, postData):
+    def Register_validator(self, postData):
         errors = {}
-        # add keys and values to errors dictionary for each invalid field
         if len(postData['first_name']) < 2:
             errors["first_name"] = "first_name should be at least 2 characters"
         name_REGEX = re.compile(r'^[a-zA-Z]+$')
@@ -17,7 +16,7 @@ class UserManager(models.Manager):
         if not name_REGEX.match(postData['last_name']):               
             errors['last_name'] = "last_name should be letters only"
         EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
-        if not EMAIL_REGEX.match(postData['email']):    # test whether a field matches the pattern            
+        if not EMAIL_REGEX.match(postData['email']):              
             errors['email'] = "Invalid email address!"
         if len(postData['password']) < 8 :
             errors["password"] = "password should be at least 8 characters"
@@ -28,6 +27,18 @@ class UserManager(models.Manager):
         if  postData['birthday'] > str(datetime(2011,1,1)):
             errors["age"] = "Users should be at least 13 years old"
         return errors
+
+
+    def login_validator(self, postData):
+        errors = {}
+        EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
+        if not EMAIL_REGEX.match(postData['email']):              
+            errors['email'] = "Invalid email address!"
+        if len(postData['password']) < 8:
+            errors["password"] = "password should be at least 8 characters"
+        return errors
+
+
 
 
 class User(models.Model):

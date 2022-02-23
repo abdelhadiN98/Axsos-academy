@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Books</title>
+    <style>
+        nav{
+            width: 1100px;
+            border-bottom: black solid 2px;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+        }
+        .link{
+            width: 100px;
+            height: 65px;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+        h1{
+            width: 500px;
+            height: 50px;
+        }
+        .all{
+            display: flex;
+            justify-content: space-between ;
+            width: 1100px;
+        }
+        .favoriteUsers{
+            display: flex;
+            justify-content: space-between;
+            width: 300px;
+        }
+        .details{
+            font-family: cursive;
+            font-size: 20px;
+            height: 474px;
+            width: 495px;
+            margin: 20px 0px 0px 112px;
+        }
+        .text{
+            outline: 2px solid black;
+            height: 86px;
+            width: 270px;
+        }
+        .click{
+            height: 30px;
+            width: 100px;
+            outline: 1px solid black;
+            box-shadow: 2px 2px black;
+            margin-left: 220px;
+        }
+        aside{
+            font-family: cursive;
+            margin-left: 80px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div><h1>Welcome , {{this_user.first_name}}</h1></div>
+        <div class="link"><a href="/">Log Out</a></div>
+    </nav>
+    <div class="all">
+        <div class="details">
+            <p>{{this_book.title}}</p>
+            <p> Added by : {{this_book.uploaded_by.first_name}}</p>
+            <p>Added on : {{this_book.created_at}}</p>
+            <p>Last updated at : {{this_book.updated_at}}</p>
+            <p>Description : {{this_book.desc}}</p>
+
+            {% if this_user.id == this_book.uploaded_by.id %}
+            <form action="/update/{{this_book.id}}" method="post">
+                {% csrf_token %}
+                <p>Description :
+                    <textarea class="text" name="update_desc"></textarea>
+                </p>
+                <input class="click" type="submit" value="Update">
+            </form>
+            <form action="/remove/{{this_book.id}}" method="post">
+                    {% csrf_token %}
+                <input class="click" type="submit" value="Delete">
+            </form>
+            {% endif %}
+        </div>
+        <aside>
+            <h1>Users Who Like This Book </h1>
+            <div class="favoriteUsers">
+                <div>
+                    <ul>
+                        {% for user in this_book.users_who_like.all %}
+                            <li>{{user.first_name}}</li>
+                        {% endfor %}
+                        {% if this_user in this_book.users_who_like.all %}
+                            <a href="/unfavorite/{{this_book.id}}">Un-Favorite</a>
+                        {% else %}
+                            <a href="/add/{{this_book.id}}">Add to Favorite</a>
+                        {% endif %}
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>
