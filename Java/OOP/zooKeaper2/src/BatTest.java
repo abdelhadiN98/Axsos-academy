@@ -8,7 +8,9 @@ public class BatTest {
 		bat.eatHumans();
 		bat.eatHumans();
 		bat.fly();
-		System.out.println(bat);
+		bat.fly();
+		
+		System.out.println(bat.energyLevel);
 	}
 
 }

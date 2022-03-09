@@ -9,6 +9,7 @@ public class KeyValue{
         story.put("To Clean a Creek" , "inspired by the true story of a young boy in Brazil");
         story.put("The Happiness Project" , "inspired by the true story of a young girl in India ");
         story.put("Project Moo" , "based on the true story of how one girl from Indonesia");
+        System.out.println(story);
         String title = story.get("Art for All");
         System.out.println("The small description is " + title);
         Set<String> keys = story.keySet();
