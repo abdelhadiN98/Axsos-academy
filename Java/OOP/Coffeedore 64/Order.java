@@ -1,57 +1,43 @@
 import java.util.ArrayList;
 public class Order {
     private String name;
-    private Boolean ready;
-    ArrayList<Item> items = new ArrayList<Item>();
-
-
-    public Order(){
-        this.name = "Guest";
-        
+    double total;
+    private boolean ready;
+    private ArrayList<Item> items ;
+    
+    // getter and setter and constructor
+    public Order(String name){
+        this.name=name;
+        this.items=new ArrayList<Item>();
     }
-    public Order(String name , Boolean ready){
-        this.name = name;
-        this.ready = ready;
+    public void setName(String name){
+        this.name=name;
+    }
+    public void setReady(boolean ready){
+        this.ready=ready;
+    }
+    public void setArrayList(ArrayList<Item> items){
+        this.items=items;
     }
     public String getName(){
-        return this.name;
-    } 
-    public void setName(String name){
-        this.name = name;
+        return name;
     }
-    public Boolean getStatus(){
-        return this.ready;
+    public boolean getReady(){
+        return ready;
     }
-    public void setStatus(Boolean ready){
-        this.ready = ready;
+    public ArrayList<Item> getItems(){
+        return items;
     }
-    public void addItem(Item Item){
-        this.items.add(Item);
-    }
-    public String status(){
-        if (this.ready == true){
-            return"Your Order is ready";
-        }
-        else{
-            return"Thank you for waiting , Your order will be ready soon";
-        }
-
+    public void addItems(Item item){
+        items.add(item);
     }
     public void display(){
-        double total = 0;
-        System.out.println("customer name :" + this.name);
-        for (int i=0 ; i<this.items.size() ; i++){
-            System.out.println(this.items.get(i).getName() + "   - " + "   " + this.items.get(i).getprice());
-            
-        }
-        double total_prices = this.getTotal();
-        System.out.println(total_prices);
+        total=0;
+        System.out.println("Customer name is : " + name);
+        for ( Item item : items){
+        System.out.println(item.getName() + ":" + item.getPrice());
+        total+=item.getPrice();
     }
-    public double getTotal(){
-        double total = 0;
-        for (int i=0 ; i<this.items.size() ; i++){
-            total +=this.items.get(i).getprice();
-        }
-        return total;
+        System.out.println("Total :" + total);
     }
 }
