@@ -1,0 +1,178 @@
+> console.log(hello);
+Uncaught ReferenceError: hello is not defined
+> var hello = 'world';
+undefined
+> var needle = 'haystack';
+undefined
+> test();
+Uncaught ReferenceError: test is not defined
+> function test(){
+...     var needle = 'magnet';
+...     console.log(needle);
+... }
+undefined
+> var brendan = 'super cool';
+undefined
+> function print(){
+...     brendan = 'only okay';
+...     console.log(brendan);
+... }
+undefined
+> console.log(brendan);
+super cool
+undefined
+> var brendan = 'super cool';
+undefined
+> function print(){
+...     brendan = 'only okay';
+...     console.log(brendan);
+... }
+undefined
+> console.log(brendan);
+super cool
+undefined
+> var brendan = 'super cool';
+undefined
+> function print(){
+...     brendan = 'only okay';
+...     console.log(brendan);
+... }
+undefined
+> console.log(brendan);
+super cool
+undefined
+> var brendan = 'super cool';
+undefined
+> function print(){
+...     brendan = 'only okay';
+...     console.log(brendan);
+... }
+undefined
+> console.log(brendan);
+super cool
+undefined
+> var food = 'chicken';
+undefined
+> var food = 'chicken';
+undefined
+> console.log(food);
+chicken
+undefined
+> eat();
+Uncaught ReferenceError: eat is not defined
+> function eat(){
+...     food = 'half-chicken';
+...     console.log(food);
+...     var food = 'gone';
+... }
+undefined
+> mean();
+Uncaught ReferenceError: mean is not defined
+> console.log(food);
+chicken
+undefined
+> var mean = function() {
+...     food = "chicken";
+...     console.log(food);
+...     var food = "fish";
+...     console.log(food);
+... }
+undefined
+> console.log(food);
+chicken
+undefined
+>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+>
+
+C:\Users\Lenovo>node
+Welcome to Node.js v16.14.2.
+Type ".help" for more information.
+> mean();
+Uncaught ReferenceError: mean is not defined
+> console.log(food);
+Uncaught ReferenceError: food is not defined
+> var mean = function() {
+...     food = "chicken";
+...     console.log(food);
+...     var food = "fish";
+...     console.log(food);
+... }
+undefined
+> console.log(food);
+Uncaught ReferenceError: food is not defined
+> console.log(genre);
+Uncaught ReferenceError: genre is not defined
+> var genre = "disco";
+undefined
+> rewind();
+Uncaught ReferenceError: rewind is not defined
+> function rewind() {
+...     genre = "rock";
+...     console.log(genre);
+...     var genre = "r&b";
+...     console.log(genre);
+... }
+undefined
+> console.log(genre);
+disco
+undefined
+> dojo = "san jose";
+'san jose'
+> console.log(dojo);
+san jose
+undefined
+> learn();
+Uncaught ReferenceError: learn is not defined
+> function learn() {
+...     dojo = "seattle";
+...     console.log(dojo);
+...     var dojo = "burbank";
+...     console.log(dojo);
+... }
+undefined
+> console.log(dojo);
+san jose
+undefined
+>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+>
+
+C:\Users\Lenovo>node
+Welcome to Node.js v16.14.2.
+Type ".help" for more information.
+> dojo = "san jose";
+'san jose'
+> console.log(dojo);
+san jose
+undefined
+> learn();
+Uncaught ReferenceError: learn is not defined
+> function learn() {
+...     dojo = "seattle";
+...     console.log(dojo);
+...     var dojo = "burbank";
+...     console.log(dojo);
+... }
+undefined
+> console.log(dojo);
+san jose
+undefined
+> console.log(makeDojo("Chicago", 65));
+Uncaught ReferenceError: makeDojo is not defined
+> console.log(makeDojo("Berkeley", 0));
+Uncaught ReferenceError: makeDojo is not defined
+> function makeDojo(name, students){
+...     const dojo = {};
+...     dojo.name = name;
+...     dojo.students = students;
+...     if(dojo.students > 50){
+.....         dojo.hiring = true;
+.....     }
+...     else if(dojo.students <= 0){
+.....         dojo = "closed for now";
+.....     }
+...     return dojo;
+... }
+undefined
+>
