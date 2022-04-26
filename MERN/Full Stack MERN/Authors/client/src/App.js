@@ -4,24 +4,28 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import AuthorForm from './components/AuthorForm';
+import Create from './views/Create';
 import Main from './views/Main';
-import Detail from './views/Detail';
 import Update from './views/Update';
+import './App.css';
+// import Detail from './views/Detail';
+// import Update from './views/Update';
     
 function App() {
   return (
     <BrowserRouter>
     <Switch>
         <div className="App">
-          <Route exact path="/product">
+          <Route exact path="/authors">
             <Main />
           </Route>
-          <Route exact path="/product/:id">
-            <Detail />
+          <Route exact path="/new">
+            <Create />
           </Route>
-          <Route path="/product/:id/edit">
-          <Update />
-            </Route>
+          <Route exact path="/author/:id/edit">
+            <Update />
+          </Route>
         </div>
       </Switch>
     </BrowserRouter>
